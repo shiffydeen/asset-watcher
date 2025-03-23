@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import { CoinContext } from '../context/CoinContext';
+
 
 const Navbar = () => {
 
@@ -15,11 +17,11 @@ const Navbar = () => {
             break;
           }
           case "inr": {
-            setCurrency({name: "inr", symbol: "₹"});
+            setCurrency({name: "gbp", symbol: "£"});
             break;
           }
           default : {
-            setCurrency({name: "inr", symbol: "₹"});
+            setCurrency({name: "ngn", symbol: "₦"});
             break;
           }
         }
@@ -36,8 +38,9 @@ const Navbar = () => {
       <div className="flex items-center gap-[max(1vw,12px)]">
             <select className='px-2 py-1 rounded-md border-2 border-white bg-transparent text-white'>
                 <option className="bg-[#09005c] text-white" value="usd">USD</option>
+                <option className="bg-[#09005c] text-white" value="ngn">NGN</option>
                 <option className="bg-[#09005c] text-white" value="eur">EUR</option>
-                <option className="bg-[#09005c] text-white" value="inr">INR</option>
+                <option className="bg-[#09005c] text-white" value="gbp">GBP</option>
             </select>
             <button className="flex items-center gap-2 px-6 py-2 rounded-full text-gray-800 bg-white text-[15px] font-medium border-none cursor-pointer">
                 Sign Up  
