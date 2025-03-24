@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CoinContext } from '../context/CoinContext';
 import LineChart from '../components/LineChart';
+const apiKey = import.meta.env.VITE_API_KEY
 
 
 
@@ -14,7 +15,7 @@ const SingleCoin = () => {
   const fetchCoinData = async () => {
     const options = {
       method: 'GET',
-      headers: { accept: 'application/json', 'x-cg-demo-api-key': 'CG-bQPpMtB3HsJ1qibUjJHSHZWs' },
+      headers: { accept: 'application/json', 'x-cg-demo-api-key': `${apiKey}` },
     };
 
     try {
@@ -29,7 +30,7 @@ const SingleCoin = () => {
     const fetchHistoricalData = async () => {
       const options = {
         method: 'GET',
-        headers: { accept: 'application/json', 'x-cg-demo-api-key': 'CG-bQPpMtB3HsJ1qibUjJHSHZWs' },
+        headers: { accept: 'application/json', 'x-cg-demo-api-key': `${apiKey}` },
       };
 
       try {

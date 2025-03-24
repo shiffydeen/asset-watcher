@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+const apiKey = import.meta.env.VITE_API_KEY
 
 export const CoinContext = createContext();
 
@@ -15,7 +16,7 @@ const CoinContextProvider = (props) => {
             method: 'GET',
             headers: { 
                 accept: 'application/json', 
-                'x-cg-demo-api-key': 'CG-bQPpMtB3HsJ1qibUjJHSHZWs '
+                'x-cg-demo-api-key': `${apiKey}`
             }
         };
 
