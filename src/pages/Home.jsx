@@ -1,9 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { CoinContext } from '../context/CoinContext';
 import { Link } from 'react-router-dom';
+import { ThemeContext } from '../context/themeContext';
+
 
 
 const Home = () => {
+
+    const {isDarkMode} = useContext(ThemeContext)
 
     const [input, setInput] = useState('');
     const {allCoin, currency} = useContext(CoinContext);
@@ -37,9 +41,9 @@ const Home = () => {
   return (
     <div className='px-2 pb-24'>
       <div className='max-w-[600px] mx-auto mt-20 flex flex-col items-center text-center gap-8'>
-        <h1 className='text-[max(4vw,36px)] font-bold leading-tight'>Largest <br /> Crypto Marketplace</h1>
-        <p className="text-gray-300 w-[75%] leading-6">
-          Welcome to the world's largest cryptocurrency marketplace. Sign up to explore more about cryptos.
+        <h1 className='text-[max(4vw,36px)] font-bold leading-tight'>Your Favorite <br /> Asset Watcher</h1>
+        <p className={`${isDarkMode ? "text-gray-300" : "text-black"} w-[75%] leading-6`}>
+          Your one-stop for tracking all digital assets.
         </p>
         <form className="w-[80%] flex items-center gap-3 bg-white p-2 rounded-md" onSubmit={searchHandler}>
           <input 
@@ -49,7 +53,7 @@ const Home = () => {
             type="text" 
             placeholder="Search crypto.." 
             required 
-            className="flex-1 text-base text-black outline-none border-none pl-2 md:w-auto w-[100px] z-10"
+            className={`flex-1 text-base text-black ${isDarkMode ? "border-none" : "border-black"}outline-none  pl-2 md:w-auto w-[100px] z-10`}
           />
           <datalist id="coinlist">
             {allCoin.map((item, index) => (
@@ -60,20 +64,6 @@ const Home = () => {
           <button type="submit" className="bg-[#7972ff] text-white text-lg px-6 py-2 rounded-md cursor-pointer">
             Search
           </button>
-          {/* <input 
-            list="coinlist" 
-            value={input} 
-            type="text" 
-            placeholder="Search crypto.." 
-            required 
-            className="flex-1 text-base outline-none border-none pl-2 min-w-0"
-        />
-        <button 
-          type="submit" 
-          className="bg-[#7972ff] text-white text-lg px-4 md:px-6 py-2 rounded-md cursor-pointer whitespace-nowrap"
-        >
-          Search
-        </button> */}
         </form>
       </div>
 

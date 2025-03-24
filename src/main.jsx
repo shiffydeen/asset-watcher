@@ -5,13 +5,16 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 BrowserRouter
 import CoinContextProvider from './context/CoinContext.jsx'
+import { ThemeProvider } from './context/themeContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-    <CoinContextProvider>
-      <App />
-    </CoinContextProvider>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+      <CoinContextProvider>
+        <App />
+      </CoinContextProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   </StrictMode>,
 )
